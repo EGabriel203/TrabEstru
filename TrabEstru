@@ -1,0 +1,54 @@
+//Programação Estruturada
+//931
+//Emerson Gabriel Guedes Garcia|2022101329
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+#define N 10
+
+int eh_par (int n) { return n % 2 == 0; }
+
+int somar_par_recursivo(
+int t, int vetor[static t], int i, int acc) {
+  if (i==t) { return acc; }
+  return somar_par_recursivo(t,vetor,i+1, 
+    acc + ( eh_par(vetor[i]) ? vetor[i] : 0 ) );
+}
+
+
+
+int main(){
+  
+  int vetor[5][10];
+  srand(time(NULL));
+  
+
+for (int i=0; i<5; i++) {
+ 
+  for (int j=0; j<10; j++){
+    
+    vetor[i][j] = rand() % 100;
+    
+    }
+    
+    
+  }
+
+int somas[5];
+ 
+for (int i=0; i<5; i++) {
+  somas[i] = somar_par_recursivo(10,vetor[i],0,0);
+  printf("\nSoma dos vetor %ld: %ld",i+1,somas[i]);
+  printf("\n%d %d %d %d %d %d %d %d %d %d\n\n", vetor[i][0], vetor[i][1], vetor[i][2], vetor[i][3], vetor[i][4], vetor[i][5], vetor[i][6], vetor[i][7], vetor[i][8], vetor[i][9]);
+  
+  }
+  
+  
+  
+
+
+  
+
+}
